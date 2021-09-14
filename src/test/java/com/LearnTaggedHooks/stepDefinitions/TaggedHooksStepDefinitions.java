@@ -181,4 +181,104 @@ public class TaggedHooksStepDefinitions {
     public void userShouldAbleToSeeSuccessMessageAsSuccessfullySaved() {
         optionalFieldsPageUnderConfiguration.g
     }
+       // --------------@Add user page---------------//
+    @Given("user is on the dashboard page with username as {string} and password as {string}")
+    public void userIsOnTheDashboardPageWithUsernameAsAdminAndPasswordAsAdmin(String username,String password) {
+      loginPage.open();
+      loginPage.enterValueInUsername(username);
+      loginPage.enterValueInPassword(password);
+    }
+    @When("User clicks on the Admin link available on the header")
+    public void user_clicks_on_the_admin_link_available_on_the_header() {
+     addUsersPage.clickAdmin();
+    }
+    @When("User able to see user management option from drop down and click on it")
+    public void user_able_to_see_user_management_option_from_drop_down_and_click_on_it()  {
+       addUsersPage.clickUserManagement();
+    }
+    @When("User from there able to see the users options and just click on it")
+    public void user_from_there_able_to_see_the_users_options_and_just_click_on_it() {
+        addUsersPage.clickUser();
+    }
+    @When("User should provide value in the Employee name as {string}")
+    public void user_should_provide_value_in_the_employee_name_as(String EmpName) {
+        addUsersPage.EnterEmployeeName(EmpName);
+    }
+    @When("user should provide the username as {string}")
+    public void user_should_provide_the_username_as(String Username) {
+        addUsersPage.EnterUserName(Username);
+    }
+    @And("user should select the status as {string} from the status dropdown")
+    public void userShouldSelectTheStatusAsDisabledFromTheStatusDropdown(String status) {
+        addUsersPage.SelectStatus(status);
+    }
+
+    @When("User should enter value in password as {string}")
+    public void user_should_enter_value_in_password_as(String Password) {
+        addUsersPage.EnterPassword(Password);
+    }
+    @When("User should enter value in the confirm password as {string}")
+    public void user_should_enter_value_in_the_confirm_password_as(String ConfPassword) {
+        addUsersPage.EnterConfirmPassword(ConfPassword);
+    }
+    @Then("user should click on the save button")
+    public void user_should_click_on_the_save_button() {
+        addUsersPage.ClickOnSave();
+    }
+    //------------------------@custom field page--------------//
+    @When("User clicks on PIM header option")
+    public void userClicksOnPIMHeaderOption() {
+        customFieldsPage.clickOnPIMHeaderMenu();
+    }
+
+    @And("User clicks on the Configuration link")
+    public void userClicksOnTheConfigurationLink() {
+        customFieldsPage.clickOnConfigurationUnderPIM();
+    }
+
+    @And("user select on custom fields option from drop down")
+    public void userSelectOnCustomFieldsOptionFromDropDown() {
+        customFieldsPage.ClickOnCustomFieldsOption();
+    }
+
+    @And("user should enter Field name as {string}")
+    public void userShouldEnterFieldNameAsOptional(String name) {
+        customFieldsPage.EnterFieldName(name);
+    }
+
+    @And("user selects the screen type as {string}")
+    public void userSelectsTheScreenTypeAsDependents(String screen) {
+        customFieldsPage.selectScreenDropDown(screen);
+    }
+
+    @And("user selects the type as {string}")
+    public void userSelectsTheTypeAsDropDown(String type) {
+        customFieldsPage.selectType(type);
+    }
+
+    @Then("user click on the Save")
+    public void userClickOnTheSave() {
+        customFieldsPage.clickOnSaveBtn();
+    }
+     //--------------------@ReportingPage--------------------//
+    @And("user click on the Reporting method link")
+    public void userClickOnTheReportingMethodLink() {
+        reportingMethods.clickOnReportingMethod();
+    }
+
+    @And("user click on add button")
+    public void userClickOnAddButton() {
+        reportingMethods.clickonAdd();
+    }
+
+    @And("User enters name in the provided field value as {string}")
+    public void userEntersNameInTheProvidedFieldValueAsNiranjan(String reportingName) {
+        reportingMethods.enterName(reportingName);
+    }
+
+    @Then("user click on the Save option")
+    public void userClickOnTheSaveOption() {
+        reportingMethods.clickOnSave();
+    }
+    
 }
