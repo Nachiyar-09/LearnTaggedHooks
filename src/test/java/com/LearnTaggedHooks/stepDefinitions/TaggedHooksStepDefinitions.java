@@ -154,131 +154,113 @@ public class TaggedHooksStepDefinitions {
 
     @When("user clicks on the PIM header option available")
     public void userClicksOnThePIMHeaderOptionAvailable() {
-        optionalFieldsPageUnderConfiguration.clickOnPIMHeaderMenu();
+        addOptionalFieldsPageUnderPIMConfiguration.clickOnPIMHeaderMenu();
     }
 
     @And("User clicks on the Configuration option available under PIM")
     public void userClicksOnTheConfigurationOptionAvailableUnderPIM() {
-        optionalFieldsPageUnderConfiguration.clickOnConfigurationUnderPIM();
+        addOptionalFieldsPageUnderPIMConfiguration.clickOnConfigurationUnderPIM();
     }
 
     @And("User clicks on the Optional Configure option")
     public void userClicksOnTheOptionalConfigureOption() {
-        optionalFieldsPageUnderConfiguration.clickOnOptionalFields();
+        addOptionalFieldsPageUnderPIMConfiguration.clickOnOptionalFields();
     }
 
     @And("User clicks on the Edit button that is available in the page")
     public void userClicksOnTheEditButtonThatIsAvailableInThePage() {
-        optionalFieldsPageUnderConfiguration.clickOnEditConfigurePIM();
+        addOptionalFieldsPageUnderPIMConfiguration.clickOnEditConfigurePIM();
     }
 
-    @And("User can hit the Save button once all changes are done")
+    @Then("User can hit the Save button once all changes are done")
     public void userCanHitTheSaveButtonOnceAllChangesAreDone() {
-        optionalFieldsPageUnderConfiguration.clickOnSaveConfigurePIM();
+        addOptionalFieldsPageUnderPIMConfiguration.clickOnSaveConfigurePIM();
+        logoutPage.clickLogoutButton();
     }
-
-    @Then("User should able to see Success message as {string}")
-    public void userShouldAbleToSeeSuccessMessageAsSuccessfullySaved() {
-        optionalFieldsPageUnderConfiguration.g
-    }
-       // --------------@Add user page---------------//
-    @Given("user is on the dashboard page with username as {string} and password as {string}")
-    public void userIsOnTheDashboardPageWithUsernameAsAdminAndPasswordAsAdmin(String username,String password) {
-      loginPage.open();
-      loginPage.enterValueInUsername(username);
-      loginPage.enterValueInPassword(password);
-    }
+   //-----------------------AddUsersPageMethodsTest---------------------------//
+   @Given("user is on the dashboard page with username as {string} and password as {string}")
+   public void userIsOnTheDashboardPageWithUsernameAsAdminAndPasswordAsAdmin(String username,String password) {
+       loginPage.open();
+       loginPage.enterValueInUsername(username);
+       loginPage.enterValueInPassword(password);
+   }
     @When("User clicks on the Admin link available on the header")
     public void user_clicks_on_the_admin_link_available_on_the_header() {
-     addUsersPage.clickAdmin();
+        addUserPageUnderAdminUsermanagement.clickAdmin();
     }
     @When("User able to see user management option from drop down and click on it")
     public void user_able_to_see_user_management_option_from_drop_down_and_click_on_it()  {
-       addUsersPage.clickUserManagement();
+        addUserPageUnderAdminUsermanagement.clickUserManagement();
     }
     @When("User from there able to see the users options and just click on it")
     public void user_from_there_able_to_see_the_users_options_and_just_click_on_it() {
-        addUsersPage.clickUser();
+        addUserPageUnderAdminUsermanagement.clickUser();
     }
     @When("User should provide value in the Employee name as {string}")
     public void user_should_provide_value_in_the_employee_name_as(String EmpName) {
-        addUsersPage.EnterEmployeeName(EmpName);
+        addUserPageUnderAdminUsermanagement.EnterEmployeeName(EmpName);
     }
     @When("user should provide the username as {string}")
     public void user_should_provide_the_username_as(String Username) {
-        addUsersPage.EnterUserName(Username);
+        addUserPageUnderAdminUsermanagement.EnterUserName(Username);
     }
     @And("user should select the status as {string} from the status dropdown")
     public void userShouldSelectTheStatusAsDisabledFromTheStatusDropdown(String status) {
-        addUsersPage.SelectStatus(status);
+        addUserPageUnderAdminUsermanagement.SelectStatus(status);
     }
 
     @When("User should enter value in password as {string}")
     public void user_should_enter_value_in_password_as(String Password) {
-        addUsersPage.EnterPassword(Password);
+        addUserPageUnderAdminUsermanagement.EnterPassword(Password);
     }
     @When("User should enter value in the confirm password as {string}")
     public void user_should_enter_value_in_the_confirm_password_as(String ConfPassword) {
-        addUsersPage.EnterConfirmPassword(ConfPassword);
+        addUserPageUnderAdminUsermanagement.EnterConfirmPassword(ConfPassword);
     }
     @Then("user should click on the save button")
     public void user_should_click_on_the_save_button() {
-        addUsersPage.ClickOnSave();
+        addUserPageUnderAdminUsermanagement.ClickOnSave();
+        logoutPage.clickLogoutButton();
+
     }
-    //------------------------@custom field page--------------//
+    //--------------------------------Add custom field test methods----------------------//
     @When("User clicks on PIM header option")
     public void userClicksOnPIMHeaderOption() {
-        customFieldsPage.clickOnPIMHeaderMenu();
+       // loginPage.open();
+       // loginPage.enterValueInUsername(username);
+       // loginPage.enterValueInPassword(password);
+        addCustomFieldPageUnderPIMConfiguration.clickOnPIMHeaderMenu();
     }
 
     @And("User clicks on the Configuration link")
     public void userClicksOnTheConfigurationLink() {
-        customFieldsPage.clickOnConfigurationUnderPIM();
+        addCustomFieldPageUnderPIMConfiguration.clickOnConfigurationUnderPIM();
     }
 
     @And("user select on custom fields option from drop down")
     public void userSelectOnCustomFieldsOptionFromDropDown() {
-        customFieldsPage.ClickOnCustomFieldsOption();
+        addCustomFieldPageUnderPIMConfiguration.ClickOnCustomFieldsOption();
     }
 
     @And("user should enter Field name as {string}")
     public void userShouldEnterFieldNameAsOptional(String name) {
-        customFieldsPage.EnterFieldName(name);
+        addCustomFieldPageUnderPIMConfiguration.EnterFieldName(name);
     }
 
     @And("user selects the screen type as {string}")
     public void userSelectsTheScreenTypeAsDependents(String screen) {
-        customFieldsPage.selectScreenDropDown(screen);
+        addCustomFieldPageUnderPIMConfiguration.selectScreenDropDown(screen);
     }
 
     @And("user selects the type as {string}")
     public void userSelectsTheTypeAsDropDown(String type) {
-        customFieldsPage.selectType(type);
+        addCustomFieldPageUnderPIMConfiguration.selectType(type);
     }
 
     @Then("user click on the Save")
     public void userClickOnTheSave() {
-        customFieldsPage.clickOnSaveBtn();
-    }
-     //--------------------@ReportingPage--------------------//
-    @And("user click on the Reporting method link")
-    public void userClickOnTheReportingMethodLink() {
-        reportingMethods.clickOnReportingMethod();
-    }
-
-    @And("user click on add button")
-    public void userClickOnAddButton() {
-        reportingMethods.clickonAdd();
-    }
-
-    @And("User enters name in the provided field value as {string}")
-    public void userEntersNameInTheProvidedFieldValueAsNiranjan(String reportingName) {
-        reportingMethods.enterName(reportingName);
-    }
-
-    @Then("user click on the Save option")
-    public void userClickOnTheSaveOption() {
-        reportingMethods.clickOnSave();
+        addCustomFieldPageUnderPIMConfiguration.clickOnSaveBtn();
+        logoutPage.clickLogoutButton();
     }
     
 }
